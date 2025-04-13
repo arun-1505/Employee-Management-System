@@ -4,6 +4,7 @@ import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { getLocalStorage, setLocalStorage } from './utils/localStorage'
 import { AuthContext } from './context/AuthProvider'
+import Loginheader from './components/others/Loginheader'
 
 
 const  App=()=> {
@@ -51,9 +52,16 @@ useEffect(()=>{
 
   return (
     <>
+
+{!user && ( <> <Loginheader /> <Login handleLogin={handleLogin} /> </>)}
+
+      {user === 'admin' && <AdminDashboard changeUser={setUser} />}
+      {user === 'employee' && (
+        <EmployeeDashboard changeUser={setUser} data={loggedInUserData} />
+      )}
       
-      {!user ? <Login  handleLogin ={handleLogin} />: ''}
-      {user=='admin' ? <AdminDashboard changeUser={setUser} /> : (user=='employee' ? <EmployeeDashboard  changeUser={setUser} data={loggedInUserData}/> : null) }
+      {/* {!user ?   <Login  handleLogin ={handleLogin} />: ''}
+      {user=='admin' ? <AdminDashboard changeUser={setUser} /> : (user=='employee' ? <EmployeeDashboard  changeUser={setUser} data={loggedInUserData}/> : null) } */}
 
 
 

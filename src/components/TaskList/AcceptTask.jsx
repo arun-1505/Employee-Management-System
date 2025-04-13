@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../context/AuthProvider'
 
 const AcceptTask = ({data}) => {
+   // const [userData,setUserData]=useContext(AuthContext)
+   
+
+   // const handleComplete = () => {
+   //    const alldata=userData
+   //    console.log(alldata);
+
+   
+
+   //  };
+   
+
+  
+   
+
   
   return (
     <div className=" flex-shrink-0 p-5 h-full w-[300px] bg-red-400 rounded-xl">
@@ -12,8 +28,8 @@ const AcceptTask = ({data}) => {
              <p className='text-sm mt-2'>  {data.taskDescription}</p>
 
              <div className='flex justify-between mt-4' >
-                <button className='bg-green-500 px-2 py-1 text-sm' >Mark as completed</button>
-                <button className='bg-red-500 px-2 py-1 text-sm'>Mark as failed</button>
+                <button    className='bg-green-500 px-2 py-1 text-sm' >Mark as completed</button>
+                <button  className='bg-red-500 px-2 py-1 text-sm'>Mark as failed</button>
              </div>
         </div>
   )
